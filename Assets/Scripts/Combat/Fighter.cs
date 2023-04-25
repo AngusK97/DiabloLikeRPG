@@ -54,9 +54,10 @@ namespace Combat
             m_targetTransform = null;
         }
 
-        private void Hit()
+        public void Hit()
         {
-            
+            var health = m_targetTransform.GetComponent<Health>();
+            health.TakeDamage(10);
         }
     }
 }
