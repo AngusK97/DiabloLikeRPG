@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044565972454214832}
+  - component: {fileID: 8961778724309982933}
   - component: {fileID: 4327989673541291877}
   - component: {fileID: 4327989673541291878}
   m_Layer: 0
@@ -33,6 +34,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8961778724309982933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847232971552257517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d071a9e46e7cdcc4e9a3b71f8442f378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mover: {fileID: 4327989673541291877}
 --- !u!114 &4327989673541291877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,8 +59,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9ff5a25a866c648be6e74517a6777d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   agent: {fileID: 4327989673541291878}
+  animator: {fileID: 4327989672435108820}
+  forwardSpeed: 0
 --- !u!195 &4327989673541291878
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -57,7 +72,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 10
+  m_Speed: 5.66
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 500
@@ -124,10 +139,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f3cb57b5036f1e744b6a0c4b6d196d2c, type: 2}
+    - target: {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
 --- !u!4 &4327989672444323658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 4327989672444478032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &4327989672435108820 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
   m_PrefabInstance: {fileID: 4327989672444478032}
   m_PrefabAsset: {fileID: 0}
