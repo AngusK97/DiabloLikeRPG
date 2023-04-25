@@ -3,17 +3,22 @@ using UnityEngine.AI;
 
 public class Mover : MonoBehaviour
 {
-    public Transform target;
     public NavMeshAgent agent;
+    public Animator animator;
 
-    private Ray m_lastRay;
+    public float forwardSpeed;
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(1))
         {
             MoveToCursor();    
         }
+
+        var globalVelocity = agent.velocity;
+        var localVelocity = transform.InverseTransformDirection(globalVelocity);
+        forwardSpeed = localVelocity.z;
+        animator.SetFloat("forwardSpeed", forwardSpeed);
     }
 
     private void MoveToCursor()
