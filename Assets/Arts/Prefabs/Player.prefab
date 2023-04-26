@@ -64,6 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 4327989673541291878}
   animator: {fileID: 4327989672435108820}
+  scheduler: {fileID: 0}
   forwardSpeed: 0
 --- !u!114 &6948106745272625699
 MonoBehaviour:
@@ -78,7 +79,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mover: {fileID: 0}
+  scheduler: {fileID: 0}
+  animator: {fileID: 0}
   weaponRange: 2
+  timeBetweenAttack: 1
 --- !u!114 &-8279414767973233050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +180,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13707166, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
 --- !u!4 &4327989672444323658 stripped

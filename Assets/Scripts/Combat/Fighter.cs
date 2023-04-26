@@ -13,51 +13,68 @@ namespace Combat
         public float weaponRange = 2f;
         public float timeBetweenAttack = 1f;
 
-        private Transform m_targetTransform;
+        private Health m_target;
 
         private float m_timeSinceLastAttack = 0f;
 
         private void Update()
         {
             m_timeSinceLastAttack += Time.deltaTime;
-            
-            if (m_targetTransform != null)
+
+            if (m_target == null)
+                return;
+
+            if (m_target.IsDead)
+                return;
+
+            var distance = Vector3.Distance(transform.position, m_target.transform.position);
+            if (distance < weaponRange)
             {
-                var distance = Vector3.Distance(transform.position, m_targetTransform.position);
-                if (distance < weaponRange)
-                {
-                    mover.Cancel();
-                    AttackBehaviour();
-                }
+                mover.Cancel();
+                AttackBehaviour();
             }
         }
 
         private void AttackBehaviour()
         {
+            transform.LookAt(m_target.transform);
             if (m_timeSinceLastAttack > timeBetweenAttack)
             {
+                animator.ResetTrigger("stopAttack");
                 animator.SetTrigger("attack");
                 m_timeSinceLastAttack = 0f;
             }
         }
 
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if (combatTarget == null) return false;
+            
+            var health = combatTarget.GetComponent<Health>();
+            return health != null && !health.IsDead;
+        }
+
         public void Attack(CombatTarget combatTarget)
         {
             scheduler.StartAction(this);
-            m_targetTransform = combatTarget.transform;
-            mover.MoveTo(m_targetTransform.position);
+            m_target = combatTarget.GetComponent<Health>();
+            mover.MoveTo(m_target.transform.position);
 
         }
 
         public void Cancel()
         {
-            m_targetTransform = null;
+            m_target = null;
+            animator.ResetTrigger("attack");
+            animator.SetTrigger("stopAttack");
         }
 
         public void Hit()
         {
-            var health = m_targetTransform.GetComponent<Health>();
-            health.TakeDamage(10);
+            if (m_target == null)
+                return;
+            
+            m_target.TakeDamage(10);
         }
     }
 }

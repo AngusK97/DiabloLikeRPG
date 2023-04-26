@@ -31,7 +31,7 @@ namespace Control
             foreach (var hitInfo in hitInfos)
             {
                 var combatTarget = hitInfo.transform.GetComponent<CombatTarget>();
-                if (combatTarget != null)
+                if (fighter.CanAttack(combatTarget))
                 {
                     if (Input.GetMouseButtonDown(1))
                     {
