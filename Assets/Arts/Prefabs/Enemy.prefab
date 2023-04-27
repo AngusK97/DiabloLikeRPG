@@ -53,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fighter: {fileID: 6948106745272625699}
   health: {fileID: 9034852382906886325}
+  mover: {fileID: 4327989673541291877}
   chaseDistance: 5
 --- !u!114 &4327989673541291877
 MonoBehaviour:
