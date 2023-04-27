@@ -1,10 +1,11 @@
 using UnityEngine;
 
-namespace Combat
+namespace Core
 {
     public class Health : MonoBehaviour
     {
         public Animator animator;
+        public ActionScheduler scheduler;
         public float healthPoints = 100f;
         public bool IsDead => m_isDead;
 
@@ -16,8 +17,7 @@ namespace Combat
             if (newHealth < 0)
             {
                 healthPoints = 0f;
-                if (!m_isDead)
-                    Die();
+                Die();
             }
             else
             {
@@ -27,8 +27,11 @@ namespace Combat
 
         private void Die()
         {
+            if (m_isDead) return;
+            
             m_isDead = true;
             animator.SetTrigger("die");
+            scheduler.CancelCurrentAction();
         }
     }
 }

@@ -1,4 +1,5 @@
 using Combat;
+using Core;
 using Movement;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Control
     {
         public Mover mover;
         public Fighter fighter;
+        public Health health;
 
         private Camera m_mainCamera;
 
@@ -18,6 +20,8 @@ namespace Control
 
         private void Update()
         {
+            if (health.IsDead) return;
+            
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
 
@@ -31,11 +35,13 @@ namespace Control
             foreach (var hitInfo in hitInfos)
             {
                 var combatTarget = hitInfo.transform.GetComponent<CombatTarget>();
-                if (fighter.CanAttack(combatTarget))
+                if (combatTarget == null) continue;
+                
+                if (fighter.CanAttack(combatTarget.gameObject))
                 {
                     if (Input.GetMouseButtonDown(1))
                     {
-                        fighter.Attack(combatTarget);
+                        fighter.Attack(combatTarget.gameObject);
                     }
 
                     return true;

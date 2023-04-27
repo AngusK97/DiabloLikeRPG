@@ -9,14 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5044565972454214832}
-  - component: {fileID: 8961778724309982933}
+  - component: {fileID: 8283009676652730768}
   - component: {fileID: 4327989673541291877}
   - component: {fileID: 6948106745272625699}
+  - component: {fileID: 9034852382906886325}
   - component: {fileID: 1314157917}
   - component: {fileID: -8279414767973233050}
   - component: {fileID: 4327989673541291878}
   - component: {fileID: 7190132534680586669}
-  - component: {fileID: 9034852382906886325}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -39,20 +39,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8961778724309982933
+--- !u!114 &8283009676652730768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3847232971552257517}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d071a9e46e7cdcc4e9a3b71f8442f378, type: 3}
+  m_Script: {fileID: 11500000, guid: 84f29400cc559004a839f8b938b92d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mover: {fileID: 4327989673541291877}
   fighter: {fileID: 6948106745272625699}
+  health: {fileID: 9034852382906886325}
+  chaseDistance: 5
 --- !u!114 &4327989673541291877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,6 +69,7 @@ MonoBehaviour:
   agent: {fileID: 4327989673541291878}
   animator: {fileID: 5622224228790588175}
   scheduler: {fileID: -8279414767973233050}
+  health: {fileID: 9034852382906886325}
   forwardSpeed: 0
 --- !u!114 &6948106745272625699
 MonoBehaviour:
@@ -86,6 +88,21 @@ MonoBehaviour:
   animator: {fileID: 5622224228790588175}
   weaponRange: 2
   timeBetweenAttack: 1
+--- !u!114 &9034852382906886325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847232971552257517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375f299a2dc74de4b8df45f58936c39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5622224228790588175}
+  scheduler: {fileID: -8279414767973233050}
+  healthPoints: 100
 --- !u!114 &1314157917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +137,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.3
-  m_Speed: 5.66
+  m_Speed: 3
   m_Acceleration: 100
   avoidancePriority: 50
   m_AngularSpeed: 500
@@ -146,20 +163,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &9034852382906886325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3847232971552257517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 375f299a2dc74de4b8df45f58936c39e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5622224228790588175}
-  health: 30
 --- !u!1001 &5622224228783382001
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,6 +228,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+--- !u!1 &5622224228783248511 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133518, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
+  m_PrefabInstance: {fileID: 5622224228783382001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5622224228783489673 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417656, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
@@ -235,3 +243,16 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9572094, guid: 30cf93deff988e74e88a144bd2127c18, type: 3}
   m_PrefabInstance: {fileID: 5622224228783382001}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2440791813083624099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622224228783248511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65512d5ad2335a41abbe35ddcfa6686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighter: {fileID: 6948106745272625699}

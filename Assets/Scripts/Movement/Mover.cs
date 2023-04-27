@@ -9,10 +9,12 @@ namespace Movement
         public NavMeshAgent agent;
         public Animator animator;
         public ActionScheduler scheduler;
+        public Health health;
         public float forwardSpeed;
 
         private void Update()
         {
+            agent.enabled = !health.IsDead;
             UpdateAnimator();
         }
 

@@ -12,11 +12,12 @@ GameObject:
   - component: {fileID: 8961778724309982933}
   - component: {fileID: 4327989673541291877}
   - component: {fileID: 6948106745272625699}
+  - component: {fileID: 2320684133216589564}
   - component: {fileID: -8279414767973233050}
   - component: {fileID: 4327989673541291878}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mover: {fileID: 4327989673541291877}
   fighter: {fileID: 6948106745272625699}
+  health: {fileID: 2320684133216589564}
 --- !u!114 &4327989673541291877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,7 +66,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 4327989673541291878}
   animator: {fileID: 4327989672435108820}
-  scheduler: {fileID: 0}
+  scheduler: {fileID: -8279414767973233050}
+  health: {fileID: 2320684133216589564}
   forwardSpeed: 0
 --- !u!114 &6948106745272625699
 MonoBehaviour:
@@ -78,11 +81,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f5946b0abb08df4dbdd8d5a1eade55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mover: {fileID: 0}
-  scheduler: {fileID: 0}
-  animator: {fileID: 0}
+  mover: {fileID: 4327989673541291877}
+  scheduler: {fileID: -8279414767973233050}
+  animator: {fileID: 4327989672435108820}
   weaponRange: 2
   timeBetweenAttack: 1
+--- !u!114 &2320684133216589564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3847232971552257517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 375f299a2dc74de4b8df45f58936c39e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4327989672435108820}
+  scheduler: {fileID: -8279414767973233050}
+  healthPoints: 100
 --- !u!114 &-8279414767973233050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +142,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5044565972454214832}
     m_Modifications:
+    - target: {fileID: 162502, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 191330, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
       propertyPath: m_Name
       value: Character_Knights_Soldier_02
@@ -186,6 +208,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3f6fc0cf5e5d31c458bc74ede87cb8ae, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+--- !u!1 &4327989672444569906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 191330, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
+  m_PrefabInstance: {fileID: 4327989672444478032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4327989672444323658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 435482, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
@@ -196,3 +223,16 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 9505156, guid: 679ff741e12a7e740819ede24a7000b7, type: 3}
   m_PrefabInstance: {fileID: 4327989672444478032}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1778542018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4327989672444569906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65512d5ad2335a41abbe35ddcfa6686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fighter: {fileID: 6948106745272625699}

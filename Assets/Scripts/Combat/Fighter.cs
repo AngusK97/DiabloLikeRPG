@@ -1,3 +1,4 @@
+using System;
 using Core;
 using Movement;
 using UnityEngine;
@@ -16,6 +17,11 @@ namespace Combat
         private Health m_target;
 
         private float m_timeSinceLastAttack = 0f;
+
+        private void Start()
+        {
+            m_timeSinceLastAttack = timeBetweenAttack;
+        }
 
         private void Update()
         {
@@ -46,7 +52,7 @@ namespace Combat
             }
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
             
@@ -54,12 +60,11 @@ namespace Combat
             return health != null && !health.IsDead;
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             scheduler.StartAction(this);
             m_target = combatTarget.GetComponent<Health>();
             mover.MoveTo(m_target.transform.position);
-
         }
 
         public void Cancel()
