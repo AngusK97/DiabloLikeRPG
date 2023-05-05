@@ -51,10 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f29400cc559004a839f8b938b92d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scheduler: {fileID: -8279414767973233050}
   fighter: {fileID: 6948106745272625699}
   health: {fileID: 9034852382906886325}
   mover: {fileID: 4327989673541291877}
   chaseDistance: 5
+  suspicionTime: 5
 --- !u!114 &4327989673541291877
 MonoBehaviour:
   m_ObjectHideFlags: 0

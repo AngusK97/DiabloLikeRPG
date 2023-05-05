@@ -2051,6 +2051,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3847232971552257517, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5044565972454214832, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2751,6 +2755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3847232971552257517, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5044565972454214832, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -3095,6 +3103,10 @@ PrefabInstance:
     - target: {fileID: 3847232971552257517, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847232971552257517, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5044565972454214832, guid: c935305ce323daa458190cdbc84c66c6, type: 3}
       propertyPath: m_RootOrder
@@ -3969,6 +3981,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2320684133216589564, guid: c70f440247ff10e40a0696ebadc3d99f, type: 3}
+      propertyPath: healthPoints
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3847232971552257517, guid: c70f440247ff10e40a0696ebadc3d99f, type: 3}
       propertyPath: m_Name
       value: Player

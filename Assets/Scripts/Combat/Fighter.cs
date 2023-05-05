@@ -39,6 +39,10 @@ namespace Combat
                 mover.Cancel();
                 AttackBehaviour();
             }
+            else
+            {
+                mover.MoveTo(m_target.transform.position);
+            }
         }
 
         private void AttackBehaviour()
@@ -64,7 +68,6 @@ namespace Combat
         {
             scheduler.StartAction(this);
             m_target = combatTarget.GetComponent<Health>();
-            mover.MoveTo(m_target.transform.position);
         }
 
         public void Cancel()
